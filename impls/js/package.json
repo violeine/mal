@@ -1,8 +1,11 @@
 {
-    "name": "mal",
-    "version": "0.0.1",
-    "description": "Make a Lisp (mal) language implemented in Javascript",
-    "dependencies": {
-        "ffi-napi": "2.4.x"
-    }
+  "name": "js",
+  "version": "1.0.0",
+  "description": "",
+  "main": "step0_repl.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
 }

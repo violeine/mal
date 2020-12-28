@@ -1,32 +1,29 @@
-if (typeof module !== 'undefined') {
-    var readline = require('./node_readline');
-    var printer = require('./printer');
+const readline=require('readline');
+
+const rl = readline.createInterface({
+  input:process.stdin,
+  output:process.stdout
+})
+rl.setPrompt('user> ');
+rl.prompt();
+
+function READ(str){
+  return str;
 }
 
-// read
-function READ(str) {
-    return str;
+function EVAL(ast,env){
+  return ast;
 }
 
-// eval
-function EVAL(ast, env) {
-    return ast;
+function PRINT(exp){
+  return exp
 }
 
-// print
-function PRINT(exp) {
-    return exp;
+function rep(str){
+  return PRINT(EVAL(READ(str),""));
 }
 
-// repl
-var rep = function(str) { return PRINT(EVAL(READ(str), {})); };
-
-// repl loop
-if (typeof require !== 'undefined' && require.main === module) {
-    // Synchronous node.js commandline mode
-    while (true) {
-        var line = readline.readline("user> ");
-        if (line === null) { break; }
-        if (line) { printer.println(rep(line)); }
-    }
-}
+rl.on('line', (ans) =>{
+  console.log(rep(ans));
+  rl.prompt();
+})
